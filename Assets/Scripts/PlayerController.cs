@@ -12,19 +12,19 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey("w"))
 		{
-			rb.AddForce(-speed * Time.deltaTime, 0, 0);
+			rb.AddForce(0, 0, speed * Time.deltaTime);
 		}
 		if (Input.GetKey("a"))
 		{
-			rb.AddForce(0, 0, -speed * Time.deltaTime);
+			rb.AddForce(-speed * Time.deltaTime, 0, 0);
 		}
 		if (Input.GetKey("s"))
 		{
-			rb.AddForce(speed * Time.deltaTime, 0, 0);
+			rb.AddForce(0, 0, -speed * Time.deltaTime);
 		}
 		if (Input.GetKey("d"))
 		{
-			rb.AddForce(0, 0, speed * Time.deltaTime);
+			rb.AddForce(speed * Time.deltaTime, 0, 0);
 		}
 	}
 }
