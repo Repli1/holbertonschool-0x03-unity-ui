@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -25,6 +26,13 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("d"))
 		{
 			rb.AddForce(speed * Time.deltaTime, 0, 0);
+		}
+		if (health == 0)
+		{
+			Debug.Log("Game Over!");
+			SceneManager.LoadScene("maze");
+			health = 5;
+			score = 0;
 		}
 	}
 
