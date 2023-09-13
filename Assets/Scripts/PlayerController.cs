@@ -5,10 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody rb;
-	
 	public float speed = 10f;
-	
 	private int score = 0;
+	public int health = 5;
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("w"))
@@ -38,5 +37,10 @@ public class PlayerController : MonoBehaviour {
             other.gameObject.SetActive(false);
             // Destroy(other.gameObject);
         }
+		if (other.CompareTag("Trap"))
+		{
+			health--;
+			Debug.Log("Health: " + health);
+		}
 	}
 }
