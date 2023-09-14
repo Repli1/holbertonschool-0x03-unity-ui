@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 10f;
 	private int score = 0;
 	public int health = 5;
+	public Text scoreText;
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("w"))
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.CompareTag("Pickup"))
         {
             score++;
-            Debug.Log("Score: " + score);
+            SetScoreText();
             other.gameObject.SetActive(false);
             // Destroy(other.gameObject);
         }
@@ -54,5 +56,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			Debug.Log("You win!");
 		}
+	}
+
+	void SetScoreText()
+	{
+		scoreText.text = "Score: " + score;
 	}
 }
