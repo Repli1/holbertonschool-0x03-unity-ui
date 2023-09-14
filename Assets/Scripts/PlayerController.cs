@@ -34,7 +34,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (health == 0)
 		{
-			Debug.Log("Game Over!");
+			winLoseText.text = "Game Over!";
+			winLoseText.color = Color.white;
+			winLoseBG.GetComponent<Image>().color = Color.red;
+			winLoseBG.SetActive(true);
 			SceneManager.LoadScene("maze");
 			health = 5;
 			score = 0;
@@ -56,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (other.CompareTag("Goal"))
 		{
-			winLoseText.text = "You win!";
+			winLoseText.text = "You Win!";
 			winLoseText.color = Color.black;
 			winLoseBG.GetComponent<Image>().color = Color.green;
 			winLoseBG.SetActive(true);
