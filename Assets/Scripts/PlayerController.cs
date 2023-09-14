@@ -38,9 +38,7 @@ public class PlayerController : MonoBehaviour {
 			winLoseText.color = Color.white;
 			winLoseBG.GetComponent<Image>().color = Color.red;
 			winLoseBG.SetActive(true);
-			SceneManager.LoadScene("maze");
-			health = 5;
-			score = 0;
+			StartCoroutine(LoadScene(3));
 		}
 	}
 
@@ -63,6 +61,7 @@ public class PlayerController : MonoBehaviour {
 			winLoseText.color = Color.black;
 			winLoseBG.GetComponent<Image>().color = Color.green;
 			winLoseBG.SetActive(true);
+			StartCoroutine(LoadScene(3));
 		}
 	}
 
@@ -73,5 +72,12 @@ public class PlayerController : MonoBehaviour {
 	void SetHealthText()
 	{
 		healthText.text = "Health: " + health;
+	}
+	IEnumerator LoadScene(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		SceneManager.LoadScene("maze");
+		//health = 5;
+		//score = 0;
 	}
 }
